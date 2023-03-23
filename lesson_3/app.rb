@@ -29,8 +29,8 @@ class App
     station1.delete_train(train2)
     station1.print_trains
 
-    route1.add_statoin(station3)
-    route1.add_statoin(station4)
+    route1.add_station(station3)
+    route1.add_station(station4)
     route1.print_stations
     route1.delete_station(station3)
     route1.print_stations

@@ -3,7 +3,7 @@ class Train
     CARGO_TYPE = "cargo"
     PASSENGER_TYPE = "passenger"
     
-    attr_reader :num, :type
+    attr_reader :num, :type, :route
     
     def initialize(num, type, wagons) #Имеет номер (произвольная строка) и тип (грузовой, пассажирский) и количество вагонов, эти данные указываются при создании экземпляра класса
         @num = num
