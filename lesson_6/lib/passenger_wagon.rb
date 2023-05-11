@@ -1,0 +1,16 @@
+class PassengerWagon < Wagon
+
+  @instances = 0
+
+  class << self
+    def instance
+      @instances
+    end
+  end
+
+
+  def initialize(manufacturer_name)
+    @type = Train::PASSENGER_TYPE
+    super(manufacturer_name)
+  end
+end
