@@ -117,6 +117,9 @@ class App
           add_stations_in_route
         when 2
           delete_stations_in_route
+        else
+          puts 'Wrong value selected, you are taking 1 or 2'
+          return
         end
       when 9
         control_booking
@@ -174,6 +177,9 @@ class App
     puts "Enter the train number (for example: '111-QQ')"
     num = gets.chomp.upcase
 
+    puts "Add a train manufacturer (for example: 'Alstom')."
+    manufacturer = gets.chomp.capitalize
+
     puts [
       'You are taking:',
       '1 - Passenger train',
@@ -181,16 +187,14 @@ class App
     ]
     n = gets.to_i
 
-    puts "Add a train manufacturer (for example: 'Alstom')."
-    manufacturer = gets.chomp.capitalize
-
     case n
-    when 1
+    when n == 1
       train = PassengerTrain.new(num, manufacturer, Train::PASSENGER_TYPE)
-    when 2
+    when n == 2
       train = CargoTrain.new(num, manufacturer, Train::CARGO_TYPE)
     else
-      puts 'Wrong value selected'
+      puts 'Wrong value selected, you are taking 1 or 2'
+      return
     end
 
     @trains << train
@@ -202,24 +206,27 @@ class App
   end
 
   def creating_wagons
-    puts [
-      'You are taking:',
-      '1 - Passenger wagon',
-      '2 - Cargo wagon'
-    ]
-    w = gets.to_i
-
     puts "Add a wagon manufacturer (for example: 'Fesco')."
     manufacturer = gets.chomp.capitalize
 
     puts 'Enter the capacity of the car (for passenger seats, and for cargo volume).'
     capacity = gets.to_i
 
+    puts [
+      'You are taking:',
+      '1 - Passenger wagon',
+      '2 - Cargo wagon'
+    ]
+    w = gets.to_i
+    
     case w
     when 1
       wagon = PassengerWagon.new(capacity, manufacturer)
     when 2
       wagon = CargoWagon.new(capacity, manufacturer)
+    else
+      puts 'Wrong value selected, you are taking 1 or 2'
+      return
     end
 
     @wagons << wagon
