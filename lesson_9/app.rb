@@ -188,9 +188,9 @@ class App
     n = gets.to_i
 
     case n
-    when n == 1
+    when 1
       train = PassengerTrain.new(num, manufacturer, Train::PASSENGER_TYPE)
-    when n == 2
+    when 2
       train = CargoTrain.new(num, manufacturer, Train::CARGO_TYPE)
     else
       puts 'Wrong value selected, you are taking 1 or 2'
